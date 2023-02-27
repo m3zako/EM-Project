@@ -1,0 +1,89 @@
+.App {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 32px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  background-color: white;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.login-form {
+  padding: 100px;
+  background-color: lightgray;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.login-form h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.form-group input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.button {
+  background-color: darkgray;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: block;
+  margin: 0 auto;
+}
+
+.button:hover {
+  background-color: gray;
+}
+
+
+.register-link-underline {
+  text-decoration: underline;
+}
+
+.link-btn {
+  background: none;
+  color: white;
+  text-decoration: underline;
+}
