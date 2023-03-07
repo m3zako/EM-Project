@@ -35,7 +35,7 @@ function Login() {
           <div className="App">
             <p> Don't have an account?</p>
             <Link to="/register" component={Register}>Register</Link>
-            <Link to="/home/priv-events" >  Home</Link>
+            <Link to="/home/priv-events" > Home</Link>
           </div>
         </div>
       </div>
