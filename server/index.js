@@ -1,11 +1,13 @@
-import Express from "express";
+import express from "express";
 import authRoutes from "./routes/auth.js"
 import userRoutes from "./routes/users.js"
 import eventRoutes from "./routes/events.js"
 import rsoRoutes from "./routes/rsos.js"
 import universityRoutes from "./routes/universities.js"
 
-const app = Express();
+const app = express();
+
+app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);

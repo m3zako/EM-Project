@@ -4,6 +4,7 @@ import './loginReg.css';
 
 function Register() {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleRegister = () => {
@@ -24,7 +25,10 @@ function Register() {
               <input type="text" id="username" value={username} onChange={e => setUsername(e.target.value)} />
               <label htmlFor="username">UserID</label>
             </div>
-
+            <div className="form-group">
+              <input type="text" id="email" value={email} onChange={e => setEmail(e.target.value)} />
+              <label htmlFor="email">Student Email</label>
+            </div>
             <div className="form-group">
               <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
               <label htmlFor="password">Password</label>
