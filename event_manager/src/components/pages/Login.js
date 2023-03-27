@@ -4,17 +4,17 @@ import Register from './Register';
 import './loginReg.css';
 
 function Login() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     // perform login validation
-    console.log(`Logging in as ${username} with password ${password}`);
+    console.log(`Logging in as ${email} with password ${password}`);
   }
 
   return (
     <div className="App">
-        <div className='title'> Event Manager</div>
+        <div className='title'>Event Manager</div>
       <div className="login-container">
         <div className="login-form">
             <div className = "App">
@@ -22,8 +22,8 @@ function Login() {
             </div>
             <form onSubmit={handleLogin}>
             <div className="form-group">
-              <input type="text" id="username" value={username} onChange={e => setUsername(e.target.value)} />
-              <label htmlFor="username">UserID</label>
+              <input type="text" id="username" value={email} onChange={e => setEmail(e.target.value)} />
+              <label htmlFor="username">Email</label>
             </div>
 
             <div className="form-group">
