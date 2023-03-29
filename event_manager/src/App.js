@@ -6,11 +6,25 @@ import Home from './components/pages/Home'
 import Navbar from './components/Navbar';
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
 
   const { currentUser } = useContext(AuthContext);
+
+  const queryClient = new QueryClient();
+
+
+  const Layout = () => {
+    return (
+      <QueryClientProvider client={queryClient}>
+      <div>
+        <Navbar/>
+        <Home />
+      </div>
+      </QueryClientProvider>
+    )
+  };
 
   const ProtectedRoute = ({children}) => {
     if (!currentUser) {
@@ -18,15 +32,6 @@ function App() {
     }
     return children
   }
-
-  const Layout = () => {
-    return (
-      <div>
-        <Navbar/>
-        <Home />
-      </div>
-    )
-  };
 
   const router = createBrowserRouter([
     {
