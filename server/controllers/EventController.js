@@ -23,7 +23,7 @@ export const getEvents = (req, res) => {
     else
     {
         // get public events
-        q = "";
+        q = "SELECT ";
     }
     
     const token = req.cookies.accessToken;
