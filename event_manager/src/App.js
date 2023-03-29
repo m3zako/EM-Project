@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 
 function App() {
 
+  // change to false to make it work
   const currentUser = true;
 
   const ProtectedRoute = ({children}) => {
@@ -20,6 +21,7 @@ function App() {
     return (
       <div>
         <Navbar/>
+        <Home />
       </div>
     )
   };
@@ -30,20 +32,20 @@ function App() {
       element: <ProtectedRoute><Layout/></ProtectedRoute>,
       children:[
         {
-          path:"/",
+          path:"/home",
           element:<Home/>
         },
         {
           path:"/home/priv-events",
-          element:<Home/>
+          element:<privEvents/>
         },
         {
           path:"/home/pub-events",
-          element:<Home/>
+          element:<pubEvents/>
         },
         {
           path:"/home/RSO-events",
-          element:<Home/>
+          element:<rsoEvents/>
         }
       ]
     },

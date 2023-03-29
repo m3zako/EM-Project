@@ -1,4 +1,4 @@
-import './Events.css'
+import './Events/Events.css'
 
 function privEvents() {
     return (
