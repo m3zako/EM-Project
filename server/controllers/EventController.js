@@ -66,9 +66,8 @@ export const getEvents = (req, res) => {
 
 
 
-
+P
 // INCOMING: [`name`, `visibility`, `category`, `description`, `time`, `contact_phone`, `contact_email`, `rso_id`, `university_id`, `location_id`];
-// OUTGOING:
 export const createEvent = (req, res) =>  {
     const token = req.cookies.accessToken;
     if (!token) return res.status(401).json("Not logged in.");
@@ -99,9 +98,6 @@ export const createEvent = (req, res) =>  {
     });
 };
 
-// TODO: create method for posting and getting a location.
-
-// INCOMING: [`event_id`];
 export const deleteEvent = (req, res) =>  {
     const token = req.cookies.accessToken;
     if (!token) return res.status(401).json("Not logged in!");
