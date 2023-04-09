@@ -66,7 +66,6 @@ export const getEvents = (req, res) => {
 
 
 
-P
 // INCOMING: [`name`, `visibility`, `category`, `description`, `time`, `contact_phone`, `contact_email`, `rso_id`, `university_id`, `location_id`];
 export const createEvent = (req, res) =>  {
     const token = req.cookies.accessToken;
