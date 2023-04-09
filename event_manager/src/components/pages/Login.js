@@ -7,7 +7,7 @@ import './loginReg.css';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [err, setErr] = useState(null);
+  const [setErr] = useState(null);
 
   const { login } = useContext(AuthContext);
   const navigate = useNavigate()
@@ -45,7 +45,7 @@ function Login() {
           <div className="App">
             <p> Don't have an account?</p>
             <Link to="/register" element={<Register />}>Register</Link>
-            <Link to="/home/priv-events" > Home </Link>
+            <Link to="/priv-events" > Home </Link>
           </div>
         </div>
       </div>

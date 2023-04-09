@@ -5,9 +5,3 @@
     text-align: left;
     font-size: 28px;
 }
-
-.post {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}

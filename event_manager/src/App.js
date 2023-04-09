@@ -1,12 +1,15 @@
-import React from 'react'
-import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
-import Login from './components/pages/Login'
-import Register from './components/pages/Register'
-import Home from './components/pages/Home'
+import React from 'react';
+import { createBrowserRouter, RouterProvider, Navigate, Outlet} from 'react-router-dom';
+import Login from './components/pages/Login';
+import Register from './components/pages/Register';
+import Home from './components/pages/Home';
 import Navbar from './components/Navbar';
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import PrivateEvents from './components/pages/StudentPages/privEvents';
+import PubEvents from './components/pages/StudentPages/pubEvents';
+import RsoEvents from './components/pages/StudentPages/rsoEvents';
 
 function App() {
 
@@ -14,14 +17,15 @@ function App() {
 
   const queryClient = new QueryClient();
 
-
   const Layout = () => {
     return (
       <QueryClientProvider client={queryClient}>
-      <div>
-        <Navbar/>
-        <Home />
-      </div>
+        <div>
+          <Navbar/>
+          <div>
+            <Outlet/>
+          </div>
+        </div>
       </QueryClientProvider>
     )
   };
@@ -39,20 +43,20 @@ function App() {
       element: <ProtectedRoute><Layout/></ProtectedRoute>,
       children:[
         {
-          path:"/home",
+          path:"home",
           element:<Home/>
         },
         {
-          path:"/home/priv-events",
-          element:<privEvents/>
+          path:"priv-events",
+          element:<PrivateEvents/>
         },
         {
-          path:"/home/pub-events",
-          element:<pubEvents/>
+          path:"pub-events",
+          element:<PubEvents/>
         },
         {
-          path:"/home/RSO-events",
-          element:<rsoEvents/>
+          path:"rso-events",
+          element:<RsoEvents/>
         }
       ]
     },
