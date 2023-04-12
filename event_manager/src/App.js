@@ -16,6 +16,7 @@ import AdminHome from './components/pages/AdminPages/adminHome';
 import AdminPrivateEvents from './components/pages/AdminPages/adminPrivEvents';
 import AdminPubEvents from './components/pages/AdminPages/adminPubEvents';
 import AdminRsoEvents from './components/pages/AdminPages/adminRsoEvents';
+import SeeUniversities from './components/pages/SAPages/universities';
 
 function App() {
 
@@ -105,6 +106,10 @@ function App() {
         {
           path:"/adminhome/adminrso-events",
           element:<AdminRsoEvents/>
+        },
+        {
+          path:"/sahome/universities",
+          element:<SeeUniversities/>
         }
       ]
     },

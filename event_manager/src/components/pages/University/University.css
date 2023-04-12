@@ -1,0 +1,38 @@
+.Event {
+    display: inline-block;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .name{
+    font-size: x-large;
+  }
+
+  .category {
+    font-size: medium;
+  }
+  
+  @media (max-width: 768px) {
+    .Event {
+      width: 45%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .Event {
+      width: 100%;
+    }
+  }
+  

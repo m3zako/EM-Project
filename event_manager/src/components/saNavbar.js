@@ -5,18 +5,12 @@ function SANavbar () {
     return (
         <nav>
             <div className="nav">
-                <Link to="/home" className="title">
+                <Link to="/sahome" className="title">
                     <span>Event Manager Super Admin</span>
                 </Link>
                 <ul className="ul">
                     <li className="active">
-                        <Link to="/home/priv-events">Private Events</Link>
-                    </li>
-                    <li>
-                        <Link to="/home/pub-events">Public Events</Link>
-                    </li>
-                    <li>
-                        <Link to="/home/rso-events">RSO Events</Link>
+                        <Link to="/sahome/universities">Universities</Link>
                     </li>
                 </ul>
             </div>
