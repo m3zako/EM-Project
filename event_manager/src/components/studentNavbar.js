@@ -1,12 +1,12 @@
 import './pages/StudentPages/Home.css'
 import {Link} from 'react-router-dom';
 
-function Navbar () {
+function StudentNavbar () {
     return (
         <nav>
             <div className="nav">
                 <Link to="/home" className="title">
-                    <span>Event Manager</span>
+                    <span>Event Manager Student</span>
                 </Link>
                 <ul className="ul">
                     <li className="active">
@@ -24,4 +24,4 @@ function Navbar () {
     )
 }
 
-export default Navbar;
+export default StudentNavbar;

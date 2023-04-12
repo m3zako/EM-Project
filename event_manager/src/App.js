@@ -3,7 +3,9 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet} from 'react-rout
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Home from './components/pages/StudentPages/Home';
-import Navbar from './components/Navbar';
+import StudentNavbar from './components/studentNavbar';
+import AdminNavbar from './components/adminNavbar';
+import SANavbar from './components/saNavbar';
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -28,7 +30,7 @@ function App() {
     if (userRole === 'admin') {
       content = (
         <div>
-          <Navbar/>
+          <AdminNavbar/>
           <div>
             <Outlet/>
           </div>
@@ -37,7 +39,7 @@ function App() {
     } else if (userRole === 'student') {
       content = (
         <div>
-          <Navbar/>
+          <StudentNavbar/>
           <div>
             <Outlet/>
           </div>
@@ -46,7 +48,7 @@ function App() {
     } else if (userRole === 'superadmin') {
       content = (
         <div>
-          <Navbar/>
+          <SANavbar/>
           <div>
             <Outlet/>
           </div>
