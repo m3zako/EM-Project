@@ -18,6 +18,10 @@ import AdminPubEvents from './components/pages/AdminPages/adminPubEvents';
 import AdminRsoEvents from './components/pages/AdminPages/adminRsoEvents';
 import SeeUniversities from './components/pages/SAPages/universities';
 
+import AdminRsoHub from './components/pages/AdminPages/Rso/adminRsoHub';
+import AdminRsoOptions from './components/pages/AdminPages/Rso/adminRsoOptions';
+
+
 function App() {
 
   const { currentUser } = useContext(AuthContext);
@@ -108,9 +112,17 @@ function App() {
           element:<AdminRsoEvents/>
         },
         {
-          path:"/sahome/universities",
-          element:<SeeUniversities/>
-        }
+          path:"/adminhome/admin-rso-hub",
+          element:<AdminRsoHub/>
+        },
+        {
+          path:"/adminhome/admin-rso-hub",
+          element:<AdminRsoHub/>
+        },
+        {
+          path: '/adminhome/admin-rso-hub/rso-options/:rsoId',
+          element: <AdminRsoOptions />,
+        },
       ]
     },
     {

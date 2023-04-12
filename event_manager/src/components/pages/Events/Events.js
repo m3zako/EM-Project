@@ -55,7 +55,7 @@ const Events = ({type}) => {
   return (
     <div className="events">
       {filteredEvents.map((event) => (
-        <Event event={event} key={event.id} />
+        <Event event={event} key={event.eventid} />
       ))}
     </div>
   );
