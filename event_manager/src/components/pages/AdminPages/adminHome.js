@@ -4,6 +4,7 @@ import Events from "../Events/Events"
 
 
 const AdminHome = () => {
+    console.log("sup sup")
     return(
         <div className = "home">
             <div className = "title">

@@ -10,14 +10,20 @@ function AdminNavbar () {
                 </Link>
                 <ul className="ul">
                     <li className="active">
-                        <Link to="/adminhome/priv-events">Private Events</Link>
+                        <Link to="/adminhome/admin-rso-hub">RSO Options</Link>
+                    </li>
+                    <li className="active">
+                        <Link to="/adminhome/adminpriv-events">Private Events</Link>
                     </li>
                     <li>
-                        <Link to="/adminhome/pub-events">Public Events</Link>
+                        <Link to="/adminhome/adminpub-events">Public Events</Link>
                     </li>
                     <li>
-                        <Link to="/adminhome/rso-events">RSO Events</Link>
+                        <Link to="/adminhome/adminrso-events">RSO Events</Link>
                     </li>
+
+
+                    
                 </ul>
             </div>
         </nav>

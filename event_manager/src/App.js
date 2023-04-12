@@ -17,10 +17,14 @@ import AdminPrivateEvents from './components/pages/AdminPages/adminPrivEvents';
 import AdminPubEvents from './components/pages/AdminPages/adminPubEvents';
 import AdminRsoEvents from './components/pages/AdminPages/adminRsoEvents';
 
+import AdminRsoHub from './components/pages/AdminPages/Rso/adminRsoHub';
+import AdminRsoOptions from './components/pages/AdminPages/Rso/adminRsoOptions';
+
+
 function App() {
 
   const { currentUser } = useContext(AuthContext);
-  const userRole = 'superadmin';
+  const userRole = 'admin';
   //const userRole = currentUser?.role;
 
   const queryClient = new QueryClient();
@@ -105,7 +109,19 @@ function App() {
         {
           path:"/adminhome/adminrso-events",
           element:<AdminRsoEvents/>
-        }
+        },
+        {
+          path:"/adminhome/admin-rso-hub",
+          element:<AdminRsoHub/>
+        },
+        {
+          path:"/adminhome/admin-rso-hub",
+          element:<AdminRsoHub/>
+        },
+        {
+          path: '/adminhome/admin-rso-hub/rso-options/:rsoId',
+          element: <AdminRsoOptions />,
+        },
       ]
     },
     {
