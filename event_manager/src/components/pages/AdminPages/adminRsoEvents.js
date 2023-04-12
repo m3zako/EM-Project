@@ -1,16 +1,16 @@
-import './Home.css';
+import './AdminEvents.css';
 import Events from "../Events/Events"
 
 
-const PrivateEvents = () => {
+const AdminRsoEvents = () => {
     return(
         <div className = "home">
             <div className = "title">
-                PRIVATE EVENTS
+                RSO EVENTS
             </div>
-            <Events type={0}/>
+            <Events type={2}/>
         </div>
-        )
+    )
 }
 
-export default PrivateEvents;
+export default AdminRsoEvents;

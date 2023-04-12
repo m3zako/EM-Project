@@ -1,4 +1,4 @@
-import '../Home.css';
+import './Home.css';
 import Events from "../Events/Events"
 
 
@@ -10,7 +10,7 @@ const rsoEvents = () => {
             </div>
             <Events type={2}/>
         </div>
-        )
+    )
 }
 
 export default rsoEvents;

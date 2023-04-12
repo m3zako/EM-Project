@@ -1,4 +1,4 @@
-import '../Home.css';
+import './Home.css';
 import Events from "../Events/Events"
 
 const PubEvents = () => {

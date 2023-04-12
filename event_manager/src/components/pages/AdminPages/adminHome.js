@@ -1,9 +1,9 @@
-import './Home.css';
-import './Events/Events.css'
-import Events from "./Events/Events"
+import './AdminEvents.css';
+import '../Events/Events.css'
+import Events from "../Events/Events"
 
 
-const Home = () => {
+const AdminHome = () => {
     return(
         <div className = "home">
             <div className = "title">
@@ -15,7 +15,7 @@ const Home = () => {
                 <Events type={2} />
             </div>
         </div>
-        )
+    )
 }
 
-export default Home;
+export default AdminHome;

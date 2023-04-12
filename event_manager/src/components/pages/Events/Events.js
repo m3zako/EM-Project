@@ -6,7 +6,7 @@ const Events = ({type}) => {
 
   const events = [
     {
-      // private = 0, public = 1, rso = 2
+      // type: private = 0, public = 1, rso = 2
       type: 0,
       eventid: 1,
       uniID: 1,

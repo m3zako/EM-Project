@@ -1,8 +1,8 @@
-import './Home.css';
+import './AdminEvents.css';
 import Events from "../Events/Events"
 
 
-const PrivateEvents = () => {
+const AdminPrivateEvents = () => {
     return(
         <div className = "home">
             <div className = "title">
@@ -13,4 +13,4 @@ const PrivateEvents = () => {
         )
 }
 
-export default PrivateEvents;
+export default AdminPrivateEvents;

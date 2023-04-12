@@ -1,4 +1,4 @@
-import './pages/Home.css'
+import './pages/StudentPages/Home.css'
 import {Link} from 'react-router-dom';
 
 function Navbar () {
@@ -10,13 +10,13 @@ function Navbar () {
                 </Link>
                 <ul className="ul">
                     <li className="active">
-                        <Link to="/priv-events">Private Events</Link>
+                        <Link to="/home/priv-events">Private Events</Link>
                     </li>
                     <li>
-                        <Link to="/pub-events">Public Events</Link>
+                        <Link to="/home/pub-events">Public Events</Link>
                     </li>
                     <li>
-                        <Link to="/rso-events">RSO Events</Link>
+                        <Link to="/home/rso-events">RSO Events</Link>
                     </li>
                 </ul>
             </div>
