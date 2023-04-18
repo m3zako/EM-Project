@@ -11,24 +11,11 @@ const Universities = ({type}) => {
       visibility: 1,
       uniname: "University of Central Florida",
       desc: "this is the description where we meet and stuff",
-      location: "antarctica (he wants us to do x and y coords but idk)",
+      location: "orlando",
       numofstudents: "50,000",
       pictures: "pictures?"
     }
   ]);
-  /*const universities = [
-    {
-      // type: private = 0, public = 1, rso = 2
-      uniID: 1,
-      rsoID: 1,
-      visibility: 1,
-      uniname: "University of Central Florida",
-      desc: "this is the description where we meet and stuff",
-      location: "antarctica (he wants us to do x and y coords but idk)",
-      numofstudents: "50,000",
-      pictures: "pictures?"
-    }
-  ];*/
 
   const filteredUni = universities.filter(university => university.type === type);
 

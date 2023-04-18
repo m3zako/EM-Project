@@ -25,7 +25,7 @@ import AdminRsoOptions from './components/pages/AdminPages/Rso/adminRsoOptions';
 function App() {
 
   const { currentUser } = useContext(AuthContext);
-  const userRole = 'superadmin';
+  const userRole = 'student';
   //const userRole = currentUser?.role;
 
   const queryClient = new QueryClient();
@@ -123,6 +123,10 @@ function App() {
           path: '/adminhome/admin-rso-hub/rso-options/:rsoId',
           element: <AdminRsoOptions />,
         },
+        {
+          path: '/sahome/universities',
+          element: <SeeUniversities />,
+        }
       ]
     },
     {
