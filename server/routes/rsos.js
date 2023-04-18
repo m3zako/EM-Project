@@ -1,10 +1,13 @@
 import Express from "express";
-import { getUserRsos, joinRso, createRso, updateRso } from "../controllers/RsoController.js";
+import { getUsersRsos, getAdminsRsos, joinRso, createRso, updateRso } from "../controllers/RsoController.js";
 
 const router = Express.Router();
 
 // INCOMING: user_id;
-router.get("/getUserRsos", getUserRsos);
+router.get("/getUsersRsos", getUsersRsos);
+
+// INCOMING: user_id;
+router.get("/getAdminsRsos", getAdminsRsos);
 
 // INCOMING: rso_id
 router.post("/join", joinRso)

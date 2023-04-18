@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 
 // INCOMING: [user_id];
-export const getUserRsos = (req, res) => {
+export const getUsersRsos = (req, res) => {
 
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not logged in.");
@@ -20,6 +20,25 @@ export const getUserRsos = (req, res) => {
           return rsoRows.map(row => row.rso_id);     
       });
   });
+}
+
+// INCOMING: [user_id];
+export const getAdminsRsos = (req, res) => {
+    const token = req.cookies.accessToken;
+    if (!token) return res.status(401).json("Not logged in.");
+    jwt.verify(token, "secretkey", (err, userInfo) => {
+        if (err) return res.status(403).json("Token is not valid!");
+        if (req.query.user_id < 1) return res.status(401).json("You need to be an Admin to own RSOs.");
+        
+        // get a list of the RSOs the admin owns
+        const rsoQuery = "SELECT * FROM rsos WHERE admin_id = ?";
+
+        db.query(rsoQuery, [req.query.user_id], (err, rsoRows) => {
+            if (err) return res.status(500).json(err);
+            const rsoIds = rsoRows.map(row => row.rso_id); 
+            return res.json(rsoRows);
+        });
+    });
 }
 
 export const joinRso = (req, res) => {

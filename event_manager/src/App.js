@@ -25,14 +25,15 @@ import AdminRsoOptions from './components/pages/AdminPages/Rso/adminRsoOptions';
 function App() {
 
   const { currentUser } = useContext(AuthContext);
-  const userRole = 'student';
-  //const userRole = currentUser?.role;
+  // const userLevel = 0; // STUDENT
+  // const userLevel = 1; // ADMIN
+  // const userLevel = 2; // SUPERADMIN
+  const userLevel = currentUser?.level;
 
   const queryClient = new QueryClient();
-
   const Layout = () => {
     let content = null;
-    if (userRole === 'admin') {
+    if (userLevel === 1) {
       content = (
         <div>
           <AdminNavbar/>
@@ -41,7 +42,7 @@ function App() {
           </div>
         </div>
       )
-    } else if (userRole === 'student') {
+    } else if (userLevel === 0) {
       content = (
         <div>
           <StudentNavbar/>
@@ -50,7 +51,7 @@ function App() {
           </div>
         </div>
       )
-    } else if (userRole === 'superadmin') {
+    } else if (userLevel === 2) {
       content = (
         <div>
           <SANavbar/>
@@ -66,6 +67,8 @@ function App() {
       </QueryClientProvider>
     )
   };
+
+  
 
   const ProtectedRoute = ({children}) => {
     if (!currentUser) {
