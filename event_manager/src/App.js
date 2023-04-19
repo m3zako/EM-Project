@@ -26,9 +26,9 @@ function App() {
 
   const { currentUser } = useContext(AuthContext);
   // const userLevel = 0; // STUDENT
-  // const userLevel = 1; // ADMIN
+  const userLevel = 1; // ADMIN
   // const userLevel = 2; // SUPERADMIN
-  const userLevel = currentUser?.level;
+  // const userLevel = currentUser?.level;
 
   const queryClient = new QueryClient();
   const Layout = () => {
