@@ -79,7 +79,7 @@ const AdminRsoHub = () => {
   const handleRsoClick = (rso) => {
     // Redirect to the adminRsoOptions and pass it that specific RSO based on the id
     console.log(`Clicked RSO with id: ${rso.rso_id}`);
-    navigate(`/adminhome/admin-rso-hub/rso-options/${rso.rso_id}`);
+    navigate(`/adminhome/admin-rso-hub/rso-options/${rso.rso_id}`, { state: { rsoData: rso }});
   };
 
   return (
