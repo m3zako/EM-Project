@@ -8,13 +8,15 @@ const AdminRsoHub = () => {
   const { currentUser } = useContext(AuthContext);
   const [showForm, setShowForm] = useState(false);
   const [isInviteMenu, setIsInviteMenu] = useState(false);
+  const [visibility, setVisibility] = useState('public');
   const [rsos, setRsos] = useState([]);
   const navigate = useNavigate();
-
+  var currId = 3;
 
   useEffect(() => {
     const fetchRsos = async () => {
-      const rsosData = await fetchAdminsRsos(currentUser.user_id);
+      // const rsosData = await fetchAdminsRsos(currentUser.user_id); // THIS IS THE REAL REQUEST
+      const rsosData = DEMO_RSOS(); // TEMPORARY DEMO DATA
       setRsos(rsosData);
     };
   
@@ -31,20 +33,26 @@ const AdminRsoHub = () => {
         "user_id":userId,
       }
       const response = await makeRequest.get("/rsos/getAdminsRsos", {params: inputs})
-      console.log(response);
       return response.data;
     } catch(err) {
       console.error(err.response.data);
     }
   };
+
+  const DEMO_RSOS = () => {
+    return [
+      {"rso_id": 1, "name": "Gaming", "description": "People who like playing some cool video games."},
+      {"rso_id": 2, "name": "Cooking", "description": "People who like cooking some excellent food."},
+      {"rso_id": 3, "name": "Painting", "description": "You can only join if you paint pretty pictures."},
+    ];
+  }
   
 
   const addRso = (formData) => {
     const newRso = {
-      // uniID: universities.length + 1,
-      // visibilitiy: 1,
-      // ...formData,
-      // type,
+      rso_id: 4,
+      visibilitiy: 1,
+      ...formData,
     };
     setRsos([...rsos, newRso]);
     setShowForm(false);
@@ -55,6 +63,7 @@ const AdminRsoHub = () => {
     console.log("Invite members", formData);
   };
 
+  // FUNCTION TO CREATE NEW RSO
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -67,15 +76,11 @@ const AdminRsoHub = () => {
     }
   };
 
-  const handleRsoClick = (id) => {
+  const handleRsoClick = (rso) => {
     // Redirect to the adminRsoOptions and pass it that specific RSO based on the id
-    console.log(`Clicked RSO with id: ${id}`);
-    navigate(`/adminhome/admin-rso-hub/rso-options/${id}`);
+    console.log(`Clicked RSO with id: ${rso.rso_id}`);
+    navigate(`/adminhome/admin-rso-hub/rso-options/${rso.rso_id}`);
   };
-
-
-
-
 
   return (
     <div>
@@ -89,14 +94,24 @@ const AdminRsoHub = () => {
           </span>
           <h2>Add RSO</h2>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="rsoname">RSO Name</label>
-            <input type="text" name="rsoname" placeholder="University Name" />
-            <label htmlFor="desc">Description</label>
-            <textarea name="desc" placeholder="Description"></textarea>
+            <label htmlFor="name">RSO Name</label>
+            <input type="text" name="name" placeholder="University Name" />
+            <label htmlFor="description">Description</label>
+            <textarea name="description" placeholder="Description"></textarea>
             <label htmlFor="location">Location</label>
             <input type="text" name="location" placeholder="Location" />
-            <label htmlFor="numofmembers">Number of Members</label>
-            <input type="text" name="numofmembers" placeholder="Number of Members" />
+            <label htmlFor="headcount">Number of Members</label>
+            <input type="text" name="headcount" placeholder="Number of Members" />
+            <label htmlFor="visibility">Visibility:</label>
+            <select
+                id="visibility"
+                value={visibility}
+                onChange={(e) => setVisibility(e.target.value)}
+            >
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+                <option value="rso">RSO</option>
+            </select>
             <button className="submit-button" type="submit">
               Add
             </button>
@@ -158,15 +173,13 @@ const AdminRsoHub = () => {
         <table className="rso-table">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Name</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             {rsos.map((rso) => (
-              <tr key={rso.rso_id} onClick={() => handleRsoClick(rso.rso_id)}>
-                <td>{rso.rso_id}</td>
+              <tr key={rso.rso_id} onClick={() => handleRsoClick(rso)}>
                 <td>{rso.name}</td>
                 <td>{rso.description}</td>
               </tr>

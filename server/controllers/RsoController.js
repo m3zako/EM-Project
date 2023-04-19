@@ -41,6 +41,28 @@ export const getAdminsRsos = (req, res) => {
     });
 }
 
+// INCOMING: [rso_id];
+export const getRso = (req, res) => {
+    const token = req.cookies.accessToken;
+    if (!token) return res.status(401).json("Not logged in.");
+    
+    jwt.verify(token, "secretkey", (err, userInfo) => {
+        if (err) return res.status(403).json("Token is not valid!");
+        
+        // Check if rso_id is provided
+        if (!req.query.rso_id) return res.status(400).json("RSO ID is required.");
+
+        // Get the RSO with the given rso_id
+        const rsoQuery = "SELECT * FROM rsos WHERE rso_id = ?";
+
+        db.query(rsoQuery, [req.query.rso_id], (err, rsoData) => {
+            if (err) return res.status(500).json(err);
+            if (rsoData.length === 0) return res.status(404).json("RSO not found.");
+            return res.json(rsoData[0]);
+        });
+    });
+}
+
 export const joinRso = (req, res) => {
     const token = req.cookies.accessToken;
     if (!token) return res.status(401).json("Not logged in.");
